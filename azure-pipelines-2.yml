@@ -1,0 +1,30 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  name: Default
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'  # Use the latest available version
+
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@5
+  inputs:
+      ConnectionType: 'PublishProfile'
+      PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml'
+      PublishProfilePassword: '$(publishprofilepwd)'
+      WebAppName: 'first-aspnetcore-webapp'
+      package: '$(System.DefaultWorkingDirectory)/**/*.zip'
