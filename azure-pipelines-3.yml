@@ -64,9 +64,12 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Deploy to Azure App Service'
   inputs:
-    azureSubscription: '$(azsubscription)'
+    azureSubscription: 'Azure subscription 1(2)(6e8f92a1-933a-4c66-b0b2-78375012c12c)'
     appType: 'webApp'
     appName: 'first-aspnetcore-webapp'
     package: '$(Build.ArtifactStagingDirectory)/app.zip'
     deploymentMethod: 'auto'
+
+
+
 
