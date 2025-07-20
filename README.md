@@ -1,7 +1,5 @@
 
 
-[![Build Status](https://dev.azure.com/tangellasupraja/pipelines-dotnet-core/_apis/build/status%2Fsuprajatangella.pipelines-dotnet-core?branchName=master)](https://dev.azure.com/tangellasupraja/pipelines-dotnet-core/_build/latest?definitionId=3&branchName=master)
-
 
 # Sample ASP.NET Core application for Azure Pipelines docs
 
